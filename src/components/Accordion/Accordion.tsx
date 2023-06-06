@@ -7,20 +7,14 @@ type AccordionPropsType = {
 
 function Accordion(props: AccordionPropsType) {
     console.log('Accordion rendering')
-    if (props.collapsed === true) {
-        return (
+              return (
             <div>
                 <AccordionTitle title={props.titleValue}/>
+                {!props.collapsed && <AccordionBody/>}
+                {/*в пропсах меню приходит true !-меняет на false и далее через && не идет отрисовывать
+                в пропсах Users приходит false !-меняет на true и далее через && идет отрисовывать*/}
             </div>
         );
-    } else {
-        return (
-            <div>
-                <AccordionTitle title={props.titleValue}/>
-                <AccordionBody/>
-            </div>
-        );
-    }
 
 }
 
