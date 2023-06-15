@@ -22,7 +22,8 @@ function App() {
             <Rating value={4}/>
             <Rating value={5}/>
             Article 2
-            <OnOff turnOn={false}/>
+            <OnOff />
+            {/*<OnOff turnOn={true}/>*/}
         </div>
     );
 }
