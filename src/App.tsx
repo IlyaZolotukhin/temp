@@ -3,13 +3,23 @@ import './App.css';
 import {Accordion} from "./components/Accordion/Accordion";
 import {Rating, RatingValueType} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
-
-import {UnControlledRating} from "./components/UnControlledRating/UnControlledRating";
+import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
 import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOff";
 import {UncontrolledAccordion} from "./components/UnControlledAccordion/UncontrolledAccordion";
 
 
 function App() {
+
+    const handleRatingChange = (value: RatingValueType) => {
+        console.log(`Rating value changed to ${value}`);
+    };
+
+    const items = [
+        {title: 'Item 1', value: 1},
+        {title: 'Item 2', value: 2},
+        {title: 'Item 3', value: 3},
+    ];
+
     console.log('App rendering')
     let [ratingValue, setRatingValue] = useState<RatingValueType>(0);
     let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false);
@@ -24,7 +34,7 @@ function App() {
             <UncontrolledAccordion titleValue={"Menu"}/>
             <UncontrolledAccordion titleValue={"Users"}/>
             Article 3 UnControlledRating
-            <UnControlledRating/>
+            <UncontrolledRating defaultValue={3} onChange={handleRatingChange}/>
             {/*<Rating value={1}/>
             <Rating value={2}/>
             <Rating value={3}/>
@@ -37,11 +47,15 @@ function App() {
             Article 5 ControlledAccordion
             <Accordion titleValue={"Menu"} collapsed={accordionCollapsed}
                        onChange={() => {
-                           setAccordionCollapsed(!accordionCollapsed)
+                           setAccordionCollapsed(!accordionCollapsed) }}
+            items ={items}
+                       onClick={(value) => {
+                           alert(`user with ID ${value} should be happy`)
                        }}/>
         </div>
     );
 }
+
 
 type PageTitlePropsType = {
     title: string

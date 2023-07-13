@@ -7,8 +7,8 @@ type RatingPropsType = {
     onChange: (value: RatingValueType) => void
 }
 
-export function UnControlledRating(props: RatingPropsType) {
-    console.log('UnControlledRating rendering')
+export function UncontrolledRating(props: RatingPropsType) {
+    console.log('UncontrolledRating rendering')
 
     let [value, setValue] = useState<RatingValueType>(props.defaultValue ? props.defaultValue : 0);
 

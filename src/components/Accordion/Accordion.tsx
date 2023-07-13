@@ -1,9 +1,23 @@
 import React from "react";
 
-type AccordionPropsType = {
+type ItemType = {
+    title: string
+    value: any
+}
+
+export type AccordionPropsType = {
     titleValue: string
     collapsed: boolean
     onChange: () => void
+    /*
+    * Elements that are showed when accordion is opened (not collapsed)
+    * */
+    items: ItemType[]
+    /*
+    * CallBack that is called when any item will clicked
+    * @param value is value of clicked item
+    * */
+    onClick: (value: any) => void
 }
 
 export function Accordion(props: AccordionPropsType) {
