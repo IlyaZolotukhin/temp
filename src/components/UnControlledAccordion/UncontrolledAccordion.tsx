@@ -6,7 +6,7 @@ type AccordionPropsType = {
 }
 
 export function UncontrolledAccordion(props: AccordionPropsType) {
-    console.log('Accordion rendering')
+    console.log('Select rendering')
 
     let [collapsed,setCollapsed] = useState(false);
 
