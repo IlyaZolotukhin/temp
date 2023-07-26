@@ -3,18 +3,38 @@ import {action} from '@storybook/addon-actions';
 import {Select} from "./Select";
 
 export default {
-    title: ' components/Select',
+    title: ' Select',
     component: Select,
 };
 
-const callback = action("accordion mode change event fired");
+export const WithValue = () => {
+    const [value, setValue] = useState('2');
 
-export const UsersUnCollapsedMode = () => {
-    const [value, setValue] = useState<boolean>(true);
-    return <Select value={"Users"} collapsed={value} onChange ={()=>setValue(!value)}
-            items={[{title: "Dimych", value: 1},
-                {title: "Valera", value: 2},
-                {title: "Artem", value: 3},
-                {title: "Ilya", value: 4}]}
-    />
+    return <>
+        <Select onChange={setValue}
+                value={value}
+                items={
+                    [
+                        {value: '1', title: 'Novosibirsk'},
+                        {value: '2', title: 'Vladivostok'},
+                        {value: '3', title: 'Sochi'},
+                    ]
+                }/>
+    </>
+}
+
+export const WithoutValue = () => {
+    const [value, setValue] = useState(null);
+
+    return <>
+        <Select onChange={setValue}
+                value={value}
+                items={
+                    [
+                        {value: '1', title: 'Novosibirsk'},
+                        {value: '2', title: 'Vladivostok'},
+                        {value: '3', title: 'Sochi'},
+                    ]
+                }/>
+    </>
 }
